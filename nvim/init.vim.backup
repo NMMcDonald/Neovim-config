@@ -1,0 +1,22 @@
+set et
+set ts=4
+set number
+set relativenumber
+set showmatch
+syntax on
+
+
+" Initialize Vim-Plug
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Kanagawa color scheme via SSH
+Plug 'git@github.com:rebelot/kanagawa.nvim.git'
+
+call plug#end()
+
+" Enable the color scheme
+set termguicolors
+colorscheme kanagawa
+
+nnoremap <F5> :w<CR>:!g++ % -o %:r && ./%:r<CR>
+
