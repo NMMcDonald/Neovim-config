@@ -1,6 +1,6 @@
 require("config.lazy")
+require("config.keymaps")
 
-vim.opt.conceallevel = 1
 vim.o.relativenumber = true
 
 -- Highlight matching braces
@@ -19,28 +19,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = false
     vim.opt_local.cindent = true
     vim.opt_local.cinoptions = ":0,l1,t0,g0,(0,W1"
-  end,
-})
-
-
-
-require("obsidian").setup({
-  workspaces = {
-    {
-      name = "main",
-      path = "/home/nmcdonald/Documents/My Vault/Main Notes",
-    },
-  },
-
-note_frontmatter_func = function(note)
-    local out = {
-      id = note.id,
-      aliases = note.aliases,
-      tags = note.tags,
-    }
-    if note.title then
-      out["title"] = note.title
-    end
-    return out
   end,
 })
